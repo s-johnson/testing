@@ -35,3 +35,12 @@ def test_complex():
     obs = mean(num_list)
     exp = NotImplemented
     assert obs == exp
+
+def test_uniform():
+    # test the mean of 10,000 uniforms
+    import numpy as np
+    np.random.seed(259)
+    unif_list = np.random.uniform(size=10000)
+    obs = mean(unif_list)
+    exp = np.mean(unif_list)
+    assert np.isclose(obs,exp)
